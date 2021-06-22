@@ -1,6 +1,6 @@
 #include <iostream>
 #include <memory>
-#include <Hoopoe/application.hpp>
+#include <Hoopoe/Application.hpp>
 
 class MyApp : public HoopoeEngine::Application
 {
