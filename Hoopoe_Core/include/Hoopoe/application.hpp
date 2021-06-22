@@ -1,7 +1,13 @@
+#pragma once
+
+#include <memory>
+
 namespace HoopoeEngine
 {
     class Application
     {
+    private:
+        std::unique_ptr<class Window> m_pWindow;
     public:
         Application();
         virtual ~Application();
