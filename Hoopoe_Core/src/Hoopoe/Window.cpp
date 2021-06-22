@@ -21,9 +21,9 @@ namespace HoopoeEngine
         shutdown();
     }
 
-    int Window:: init()
+    int Window::init()
     {
-        LOG_INFO("Create window {0} width size {1}x{2}", m_title, m_width, m_height);
+        LOG_INFO("Create window '{0}' width size {1}x{2}", m_title, m_width, m_height);
 
         if (!s_GLFW_initilized)
         {
@@ -38,7 +38,7 @@ namespace HoopoeEngine
         m_pWindow = glfwCreateWindow(m_width, m_height, m_title.c_str(), nullptr, nullptr);
         if (!m_pWindow)
         {
-            LOG_CRITICAL("Can't create GLFW! {0} width size {1}x{2}", m_title, m_width, m_height);
+            LOG_CRITICAL("Can't create GLFW! '{0}' width size {1}x{2}", m_title, m_width, m_height);
             glfwTerminate();
             return -2;
         }
@@ -66,6 +66,5 @@ namespace HoopoeEngine
         glClear(GL_COLOR_BUFFER_BIT);
         glfwSwapBuffers(m_pWindow);
         glfwPollEvents();
-        
-    }
+        }
 }
