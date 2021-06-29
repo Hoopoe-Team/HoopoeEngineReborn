@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Hoopoe/Event.hpp"
+
 #include <memory>
 
 namespace HoopoeEngine

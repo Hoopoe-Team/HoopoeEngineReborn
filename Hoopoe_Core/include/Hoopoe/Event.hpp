@@ -30,6 +30,8 @@ namespace HoopoeEngine
 
     class EventDispatcher
     {
+        private:
+            std::array<std::function<void(BaseEvent&)>, static_cast<size_t>(EventType::EventsCount)> m_eventCallbacks;
         public:
         template<typename EventType>
         void add_event_listener(std::function<void(EventType&)> callback)
@@ -38,10 +40,10 @@ namespace HoopoeEngine
             {
                 if (event.get_type() == EventType::type)
                 {
-                    func(static_cast<Event_Type&>(event));
+                    func(static_cast<EventType&>(event));
                 }
             };
-            m_eventCallBacks[static_cast<size_t>(EventType::type)] = std::move(baseCallback);
+            m_eventCallbacks[static_cast<size_t>(EventType::type)] = std::move(baseCallback);
         }
 
         void dispatch(BaseEvent& event)
@@ -53,8 +55,7 @@ namespace HoopoeEngine
             }
         }
         
-        private:
-        std::array<std::function<void(BaseEvent&)>,static_cast<size_t>(EventType::EventsCount)> m_eventCallbacks;
+        
     };
 
     struct EventMouseMoved : public BaseEvent
