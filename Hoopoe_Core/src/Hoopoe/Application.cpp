@@ -39,18 +39,31 @@ namespace HoopoeEngine
             }
         );
 
-        m_pWindow->set_event_callback(
+        m_event_dispatcher.add_event_listener<EventWindowClose>
+        (
+            [&](EventWindowClose& event)
+            {
+                LOG_INFO("[WindowClose]");
+                m_bCloseWindow = true;
+            }
+        );
+
+        m_pWindow->set_event_callback
+        (
             [&](BaseEvent& event)
             {
                 m_event_dispatcher.dispatch(event);
             }
-            );
+        );
 
         while(!m_bCloseWindow)
         {
             m_pWindow->on_update();
             on_update();
         }
+
+        m_pWindow = nullptr;
+
         return 0;
     }
 }

@@ -73,6 +73,19 @@ namespace HoopoeEngine
             }
         );
 
+        glfwSetWindowCloseCallback(m_pWindow,
+            [](GLFWwindow* pWindow)
+            {
+                WindowData& data = *static_cast<WindowData*>(glfwGetWindowUserPointer(pWindow));
+
+                EventWindowClose event;
+                data.eventCallbackFn(event);
+            }
+        );
+        
+
+    
+
         return 0;
     }
 

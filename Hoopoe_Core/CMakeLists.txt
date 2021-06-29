@@ -36,3 +36,38 @@ target_link_libraries(${ENGINE_PROJECT_NAME} PRIVATE spdlog)
 add_subdirectory(../external/glad ${CMAKE_CURRENT_BINARY_DIR}/glad) #glad
 target_link_libraries(${ENGINE_PROJECT_NAME} PRIVATE glad)
 
+####################################imgui####################################
+set(IMGUI_INCLUDE 
+    ../external/imgui/imgui.h
+    ../external/imgui/backends/imgui_impl_glfw.h
+    ../external/imgui/backends/imgui_impl_opengl3.h
+)
+
+set(IMGUI_SRC 
+../external/imgui/imgui.cpp
+../external/imgui/backends/imgui_impl_glfw.cpp
+../external/imgui/backends/imgui_impl_opengl3.cpp
+../external/imgui/imgui_demo.cpp
+../external/imgui/imgui_draw.cpp
+../external/imgui/imgui_tables.cpp
+../external/imgui/imgui_widgets.cpp
+)
+
+add_library(imgui STATIC
+${IMGUI_INCLUDE}
+${IMGUI_SRC}
+)
+
+target_include_directories(imgui PUBLIC ../external)
+target_include_directories(imgui PUBLIC ../external/imgui)
+target_link_libraries(imgui PRIVATE glad glfw)
+
+target_link_libraries(${ENGINE_PROJECT_NAME} PRIVATE imgui)
+
+
+
+
+
+
+
+

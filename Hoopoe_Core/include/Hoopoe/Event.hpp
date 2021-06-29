@@ -89,11 +89,16 @@ namespace HoopoeEngine
 
         static const EventType type = EventType::WindowResize;
     };
-/*
-    struct Event
+
+    struct EventWindowClose : public BaseEvent
     {
-        unsigned int width;
-        unsigned int height;       
+        virtual EventType get_type() const override
+        {
+            return type;
+        }
+
+        static const EventType type = EventType::WindowClose;
     };
-*/ 
+
+
 }
