@@ -5,6 +5,7 @@ set(ENGINE_PROJECT_NAME Hoopoe_Core)
 set(ENGINE_PUBLIC_INCLUDE
     include/Hoopoe/Application.hpp
     include/Hoopoe/Log.hpp
+    include/Hoopoe/Event.hpp
 )
 
 set(ENGINE_PRIVATE_INCLUDE

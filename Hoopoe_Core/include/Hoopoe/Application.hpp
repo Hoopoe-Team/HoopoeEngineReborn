@@ -8,6 +8,9 @@ namespace HoopoeEngine
     {
     private:
         std::unique_ptr<class Window> m_pWindow;
+
+        EventDispatcher m_event_dispatcher;
+        bool m_bCloseWindow = false;
     public:
         Application();
         virtual ~Application();
@@ -21,5 +24,6 @@ namespace HoopoeEngine
         virtual int start(unsigned int window_width, unsigned int window_height,const char* title);
 
         virtual void on_update() {}
+    
     };
 }
