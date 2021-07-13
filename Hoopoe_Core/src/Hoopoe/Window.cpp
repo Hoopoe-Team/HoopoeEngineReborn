@@ -84,7 +84,6 @@ namespace HoopoeEngine
             return -2;
         }
 
-        /* Make the window's context current */
         glfwMakeContextCurrent(m_pWindow);
 
         if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -95,7 +94,7 @@ namespace HoopoeEngine
 
         glfwSetWindowUserPointer(m_pWindow, &m_data);
 
-        glfwSetWindowSizeCallback(m_pWindow,
+        glfwSetWindowSizeCallback(m_pWindow, // window size
         [](GLFWwindow* pWindow, int width, int height)
         {
             WindowData& data = *static_cast<WindowData*>(glfwGetWindowUserPointer(pWindow));
@@ -106,7 +105,7 @@ namespace HoopoeEngine
             data.eventCallbackFn(event);
         }
         );
-        glfwSetCursorPosCallback(m_pWindow,
+        glfwSetCursorPosCallback(m_pWindow, // mouse pos 
             [](GLFWwindow* pWindow, double x, double y)
             {
                 WindowData& data = *static_cast<WindowData*>(glfwGetWindowUserPointer(pWindow));
@@ -116,7 +115,7 @@ namespace HoopoeEngine
             }
         );
 
-        glfwSetWindowCloseCallback(m_pWindow,
+        glfwSetWindowCloseCallback(m_pWindow, // Close button
             [](GLFWwindow* pWindow)
             {
                 WindowData& data = *static_cast<WindowData*>(glfwGetWindowUserPointer(pWindow));
@@ -126,7 +125,7 @@ namespace HoopoeEngine
             }
         );
 
-        glfwSetFramebufferSizeCallback(m_pWindow,
+        glfwSetFramebufferSizeCallback(m_pWindow, // size of triangle reletive to the window
             [](GLFWwindow* pWindow, int width, int height)
             {
                 glViewport(0, 0 , width, height);
@@ -185,16 +184,21 @@ namespace HoopoeEngine
 
         glUseProgram(shader_program);
         glBindVertexArray(vao);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawArrays(GL_TRIANGLES, 0, 3 );
 
         ImGuiIO& io = ImGui::GetIO();
         io.DisplaySize.x = static_cast<float>(get_width());
         io.DisplaySize.y = static_cast<float>(get_height());
 
         ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
         ImGui::ShowDemoWindow();
+
+        ImGui::Begin("Background Color Window");
+        ImGui::ColorEdit4("Background Color", m_background_color);
+        ImGui::End();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
