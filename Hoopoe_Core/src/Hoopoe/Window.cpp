@@ -197,20 +197,22 @@ namespace HoopoeEngine
 
         
         
-        ImGui::ShowDemoWindow();
+        //ImGui::ShowDemoWindow();
         
+        // Background color
         ImGui::Begin("Background Color Window");
         ImGui::ColorEdit4("Background Color", m_background_color);
         ImGui::End();
+        
 
         // DOESN'T WORK
-        ImGui::Begin("Triangle Position/Rotation Window");
-        static float rotation = 0.0;
-        ImGui::SliderFloat("rotation", &rotation, 0, 2 * PI);
-        static float translation[] = { 0.0, 0.0 };
-        ImGui::SliderFloat2("position", translation, -1.0, 1.0);
-        static float color[4] = { 1.0f,1.0f,1.0f,1.0f };
-        ImGui::End();
+        //ImGui::Begin("Triangle Position/Rotation Window");
+        //static float rotation = 0.0;
+        //ImGui::SliderFloat("rotation", &rotation, 0, 2 * PI);
+        //static float translation[] = { 0.0, 0.0 };
+        //ImGui::SliderFloat2("position", translation, -1.0, 1.0);
+        //static float color[4] = { 1.0f,1.0f,1.0f,1.0f };
+        //ImGui::End();
         
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

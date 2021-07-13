@@ -7,6 +7,7 @@
 
 
 
+
 namespace HoopoeEngine
 {
     Application::Application()
