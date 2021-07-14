@@ -1,7 +1,8 @@
 #pragma once
+
 #include <iostream>
 
-#include"Hoopoe/Log.hpp"
+#include "Hoopoe/Log.hpp"
 #include "Hoopoe/Application.hpp"
 #include "Hoopoe/Window.hpp"
 

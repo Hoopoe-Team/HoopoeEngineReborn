@@ -7,6 +7,7 @@ set(ENGINE_PUBLIC_INCLUDE
     include/Hoopoe/Log.hpp
     include/Hoopoe/Event.hpp
     include/Hoopoe/FileManager.hpp
+    include/Hoopoe/OpenGLShader.hpp
 )
 
 set(ENGINE_PRIVATE_INCLUDE
@@ -17,6 +18,9 @@ set(ENGINE_PRIVATE_SRC
     src/Hoopoe/Application.cpp
     src/Hoopoe/Window.cpp
     src/Hoopoe/FileManager.cpp
+    src/Hoopoe/OpenGLShader.cpp
+    src/Hoopoe/assets/HoopoeShader.vs
+    src/Hoopoe/assets/HoopoeShader.fs
 )
 
 add_library(${ENGINE_PROJECT_NAME} STATIC
