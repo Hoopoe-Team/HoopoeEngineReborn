@@ -11,18 +11,28 @@ set(ENGINE_PUBLIC_INCLUDE
 
 set(ENGINE_PRIVATE_INCLUDE
     src/Hoopoe/Window.hpp
+    src/Hoopoe/Rendering/OpenGL/ShaderProgram.hpp
 )
 
 set(ENGINE_PRIVATE_SRC
     src/Hoopoe/Application.cpp
     src/Hoopoe/Window.cpp
     src/Hoopoe/FileManager.cpp
+    src/Hoopoe/Rendering/OpenGL/ShaderProgram.cpp
 )
 
-add_library(${ENGINE_PROJECT_NAME} STATIC
+set(ENGINE_ALL_SOURCES
     ${ENGINE_PUBLIC_INCLUDE}
     ${ENGINE_PRIVATE_INCLUDE}
     ${ENGINE_PRIVATE_SRC}
+)
+
+add_library(${ENGINE_PROJECT_NAME} STATIC
+    ${ENGINE_ALL_SOURCES}
+)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES
+    ${ENGINE_ALL_SOURCES}
 )
 
 target_include_directories(${ENGINE_PROJECT_NAME} PUBLIC include)

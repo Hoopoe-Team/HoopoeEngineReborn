@@ -1,4 +1,5 @@
 #include "Hoopoe/FileManager.hpp"
+#include "Hoopoe/Log.hpp"
 
 FileManager::FileManager()
 {
@@ -18,7 +19,7 @@ std::string FileManager::read(const std::string& filename) {
         file.close();
     }
     catch (std::ifstream::failure e) {
-        std::cout << "Error reading Shader File!" << std::endl;
+        LOG_ERROR("Error reading shader file");
     }
     return file_stream.str();
 }
