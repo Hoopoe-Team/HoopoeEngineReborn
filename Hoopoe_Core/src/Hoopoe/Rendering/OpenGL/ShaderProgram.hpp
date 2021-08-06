@@ -16,7 +16,7 @@ namespace HoopoeEngine {
         ShaderProgram() = delete;
         ShaderProgram(const ShaderProgram&) = delete;
         ShaderProgram& operator=(const ShaderProgram&) = delete;
-
+        
         void bind() const;
         static void unbind();
         bool isCompiled() const {return m_isCompiled;}
