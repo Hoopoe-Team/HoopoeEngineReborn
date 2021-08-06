@@ -5,5 +5,5 @@ using namespace HoopoeEngine;
 
 int main()
 {
-	;
+	UTest qwe;
 }

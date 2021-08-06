@@ -1,14 +1,21 @@
 #include "UTestBase.hpp"
 
+void HoopoeEngine::UTestBase::color()
+{
+	spdlog::set_pattern("%^[UTEST]%$ %v");
+}
 
-#include <spdlog/spdlog.h>
+void HoopoeEngine::UTestBase::Complete()
+{
+	spdlog::info("COMPLETE");
+}
+
+void HoopoeEngine::UTestBase::inComplete()
+{
+	spdlog::critical("INCOMPLETE");
+}
 
 HoopoeEngine::UTestBase::UTestBase()
 {
-
-}
-
-bool HoopoeEngine::UTestBase::Test()
-{
-	return false;
+    
 }

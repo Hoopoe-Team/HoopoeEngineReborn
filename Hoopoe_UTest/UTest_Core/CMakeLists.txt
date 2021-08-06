@@ -14,7 +14,6 @@ set(CORE_PRIVATE_SRC
 
 set(CORE_ALL_SOURCES
     ${CORE_PUBLIC_INCLUDE}
-    ${CORE_PRIVATE_INCLUDE}
     ${CORE_PRIVATE_SRC}
 )
 
@@ -31,4 +30,4 @@ target_include_directories(${CORE_PROJECT_NAME} PRIVATE src)
 target_compile_features(${CORE_PROJECT_NAME} PUBLIC cxx_std_17)
 
 add_subdirectory(../../external/spdlog ${CMAKE_CURRENT_BINARY_DIR}/spdlog) #spdlog
-target_link_libraries(${CORE_PROJECT_NAME} PRIVATE spdlog)
+target_link_libraries(${CORE_PROJECT_NAME} PUBLIC spdlog)

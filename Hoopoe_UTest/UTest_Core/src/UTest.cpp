@@ -7,13 +7,15 @@ bool HoopoeEngine::UTest::Test()
 
 HoopoeEngine::UTest::UTest()
 {
+	color();
 	if (Test())
 	{
-		spdlog::info("Welcome to spdlog!");
+		Complete();
+		inComplete();
 	}
 }
 
-HoopoeEngine::UTest::~UTest()
+HoopoeEngine::UTest::~UTest() 
 {
 
 }

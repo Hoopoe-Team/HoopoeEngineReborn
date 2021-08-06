@@ -9,7 +9,7 @@ namespace HoopoeEngine
     public:
         UTest();
         ~UTest();
-
-        bool Test();
+    private:
+        virtual bool Test();
     };
 }
